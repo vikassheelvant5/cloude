@@ -1,0 +1,44 @@
+
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return render_template_string("""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My Flask App</title>
+        <style>
+            body {
+                font-family: Arial;
+                text-align: center;
+                background: #f0f2f5;
+                padding: 100px;
+            }
+            h1 {
+                color: #007bff;
+            }
+            button {
+                background: #007bff;
+                color: white;
+                padding: 12px 25px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to Python Flask!</h1>
+        <p>My first Flask web application.</p>
+        <button onclick="alert('Hello from Flask!')">
+            Click Me
+        </button>
+    </body>
+    </html>
+    """)
+
+if __name__ == "__main__":
+    app.run(debug=True)
